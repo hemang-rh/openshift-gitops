@@ -10,8 +10,8 @@ spec:
     - name: "default-flavor"
       resources:
       - name: "cpu"
-        nominalQuota: 12
+        nominalQuota: '12'
       - name: "memory"
         nominalQuota: 36Gi
       - name: "nvidia.com/gpu"
-        nominalQuota: 1
+        nominalQuota: '1'
