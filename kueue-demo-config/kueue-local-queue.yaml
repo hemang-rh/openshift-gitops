@@ -2,7 +2,5 @@ apiVersion: kueue.x-k8s.io/v1beta1
 kind: LocalQueue
 metadata:
   name: local-queue-demo
-  annotations:
-    kueue.x-k8s.io/default-queue: 'true'
 spec:
   clusterQueue: cluster-queue
