@@ -15,6 +15,9 @@ teardown-kueue-demo:
 	@echo "Deleting all resourceflavors"
 	oc delete resourceflavor --all --all-namespaces 
 
+	@echo "Deleting all pods"
+	oc delete --all pods -n $(PROJECT)
+
 setup-kueue-demo:
 	
 	@echo "Creating project $(PROJECT)"

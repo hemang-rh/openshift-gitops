@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: adhoc-job
+  # generateName: demo-job-
+  # labels:
+  #   kueue.x-k8s.io/queue-name: local-queue-demo
+spec:
+  # parallelism: 3
+  # completions: 3
+  # suspend: true
+  template:
+    spec:
+      containers:
+      - name: demo-job
+        image: registry.redhat.io/openshift4/ose-cli:latest
+        command:
+          - /bin/bash
+          - -c
+          - |
+            BASE=https://github.com/hemang-rh/openshift-gitops/
+            for i in $(shell seq 1 10); do \
+              oc create -f $(BASE)/kueue-demo/kueue-job.yaml; \
+            done
+        resources:
+          requests:
+            cpu: 1
+            memory: "200Mi"
+      restartPolicy: Never
+      serviceAccount: hsadmin
+      serviceAccountName: hsadmin
