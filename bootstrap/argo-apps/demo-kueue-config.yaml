@@ -4,7 +4,7 @@ metadata:
   name: kueue-demo-config
 spec:
   destination:
-    namespace: default
+    namespace: dkueue-demo
     server: https://kubernetes.default.svc
   project: default
   source:
