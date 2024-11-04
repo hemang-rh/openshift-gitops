@@ -24,7 +24,12 @@ oc apply -k bootstrap
 ## Watch Jobs
 
 ```sh
-oc create -f demo-kueue/adhoc-job.yaml
+# A cronjob re-starts jobs every 2 mins
+watch oc -n demo-kueue get queues,job
+```
 
-watch oc get queues,job
+## Uninstall
+
+```sh
+oc delete -k demo
 ```
