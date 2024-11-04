@@ -8,8 +8,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    directory:
-      recurse: true
+    # directory:
+    #   recurse: true
     path: demo-kueue-config
     repoURL: https://github.com/codekow/demo-kueue
     targetRevision: peer-review
