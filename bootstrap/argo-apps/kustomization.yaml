@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: openshift-gitops
 
 resources:
+- app-of-apps.yaml
 - app.yaml
 - cluster.yaml
 - kueue-demo-config.yaml
