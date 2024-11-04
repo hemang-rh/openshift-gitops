@@ -43,11 +43,12 @@ spec:
                 # set -x
 
                 clean_kueue_jobs(){
+                  echo "deleting"
                   oc delete job -l kueue.x-k8s.io/queue-name
                 }
 
                 start_kueue_jobs(){
-                  BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/main
+                  BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/peer-review
 
                   for i in $(seq 1 10); do \
                     oc create -f ${BASE}/kueue-demo/kueue-job.yaml; \
