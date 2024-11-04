@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-config
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: - demos/rhoai-nvidia-gpu-autoscale
+    repoURL: https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/
+    targetRevision: v0.10
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true

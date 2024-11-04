@@ -9,3 +9,4 @@ resources:
 - cluster-config.yaml
 - demo-kueue-config.yaml
 - demo-kueue.yaml
+- demo-rhoai-gpu.yaml
