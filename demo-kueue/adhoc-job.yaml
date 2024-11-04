@@ -15,7 +15,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: adhoc-job
-    namespace: kueue-demo
+    namespace: demo-kueue
 ---
 apiVersion: batch/v1
 kind: Job
