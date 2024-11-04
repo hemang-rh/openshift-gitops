@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: demos/rhoai-nvidia-gpu-autoscale
+    path: demos/rhoai-workshop-ready
     repoURL: https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/
     targetRevision: main
   syncPolicy:
