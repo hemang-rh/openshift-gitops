@@ -37,8 +37,12 @@ spec:
           - /bin/bash
           - -c
           - |
+            #!/bin/bash
+            set -x
+
             BASE=https://github.com/codekow/demo-kueue/
-            for i in $(shell seq 1 10); do \
+
+            for i in $(seq 1 10); do \
               oc create -f $(BASE)/kueue-demo/kueue-job.yaml; \
             done
         resources:
