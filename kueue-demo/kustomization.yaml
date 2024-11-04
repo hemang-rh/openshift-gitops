@@ -5,4 +5,3 @@ namespace: kueue-demo
 
 resources:
 - adhoc-job.yaml
-- ray-cluster.yaml
