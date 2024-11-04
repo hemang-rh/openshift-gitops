@@ -43,7 +43,7 @@ spec:
             BASE=https://github.com/codekow/demo-kueue/
 
             for i in $(seq 1 10); do \
-              oc create -f $(BASE)/kueue-demo/kueue-job.yaml; \
+              oc create -f ${BASE}/kueue-demo/kueue-job.yaml; \
             done
         resources:
           requests:
