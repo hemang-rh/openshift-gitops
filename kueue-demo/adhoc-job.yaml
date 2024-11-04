@@ -40,7 +40,7 @@ spec:
             #!/bin/bash
             set -x
 
-            BASE=https://github.com/codekow/demo-kueue/
+            BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/main
 
             for i in $(seq 1 10); do \
               oc create -f ${BASE}/kueue-demo/kueue-job.yaml; \
