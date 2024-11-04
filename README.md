@@ -25,7 +25,7 @@ oc apply -k bootstrap
 
 ```sh
 # A cronjob re-starts jobs every 2 mins
-watch oc -n demo-kueue get queues,job
+watch oc -n demo-kueue get jobs,queues
 ```
 
 ## Uninstall
