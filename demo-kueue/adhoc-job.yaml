@@ -18,31 +18,47 @@ subjects:
     namespace: demo-kueue
 ---
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   name: adhoc-job
 spec:
-  template:
+  schedule: '*/3 * * * *'
+  concurrencyPolicy: Replace
+  jobTemplate:
+    metadata:
+      name: adhoc-job
     spec:
-      containers:
-      - name: demo-job
-        image: registry.redhat.io/openshift4/ose-cli:latest
-        command:
-          - /bin/bash
-          - -c
-          - |
-            #!/bin/bash
-            set -x
+      template:
+        metadata:
+        spec:
+          containers:
+          - name: adhoc-job
+            image: registry.redhat.io/openshift4/ose-cli:latest
+            command:
+              - /bin/bash
+              - -c
+              - |
+                #!/bin/bash
+                # set -x
 
-            BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/main
+                clean_kueue_jobs(){
+                  oc delete job -l kueue.x-k8s.io/queue-name
+                }
 
-            for i in $(seq 1 10); do \
-              oc create -f ${BASE}/kueue-demo/kueue-job.yaml; \
-            done
-        resources:
-          requests:
-            cpu: 1
-            memory: "200Mi"
-      restartPolicy: Never
-      serviceAccount: adhoc-job
-      serviceAccountName: adhoc-job
+                start_kueue_jobs(){
+                  BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/main
+
+                  for i in $(seq 1 10); do \
+                    oc create -f ${BASE}/kueue-demo/kueue-job.yaml; \
+                  done
+                }
+
+                clean_kueue_jobs
+                start_kueue_jobs
+            resources:
+              requests:
+                cpu: 1
+                memory: "200Mi"
+          restartPolicy: Never
+          serviceAccount: adhoc-job
+          serviceAccountName: adhoc-job
