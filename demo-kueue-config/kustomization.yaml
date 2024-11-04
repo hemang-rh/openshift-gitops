@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
 - cluster-queue.yaml
-- default-favor.yaml
+- default-flavor.yaml
