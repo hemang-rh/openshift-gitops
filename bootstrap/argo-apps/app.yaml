@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: app-python-app
-  namespace: openshift-gitops
 spec:
   destination:
     namespace: python-app
@@ -12,8 +11,8 @@ spec:
     directory:
       recurse: true
     path: app
-    repoURL: https://github.com/hemang-rh/openshift-gitops.git
-    targetRevision: main
+    repoURL: https://github.com/codekow/demo-kueue
+    targetRevision: peer-review
   syncPolicy:
     automated:
       prune: true

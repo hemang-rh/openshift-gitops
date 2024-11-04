@@ -18,7 +18,7 @@ spec:
           - /bin/bash
           - -c
           - |
-            BASE=https://github.com/hemang-rh/openshift-gitops/
+            BASE=https://github.com/codekow/demo-kueue/
             for i in $(shell seq 1 10); do \
               oc create -f $(BASE)/kueue-demo/kueue-job.yaml; \
             done

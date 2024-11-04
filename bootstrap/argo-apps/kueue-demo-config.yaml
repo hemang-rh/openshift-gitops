@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kueue-demo-config
-  namespace: openshift-gitops
 spec:
   destination:
     namespace: default
@@ -12,5 +11,5 @@ spec:
     directory:
       recurse: true
     path: kueue-demo-config
-    repoURL: https://github.com/hemang-rh/openshift-gitops
-    targetRevision: HEAD
+    repoURL: https://github.com/codekow/demo-kueue
+    targetRevision: peer-review
