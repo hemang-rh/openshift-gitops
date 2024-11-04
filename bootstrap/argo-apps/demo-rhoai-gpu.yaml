@@ -10,10 +10,10 @@ spec:
   source:
     path: demos/rhoai-nvidia-gpu-autoscale
     repoURL: https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/
-    targetRevision: v0.10
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
       selfHeal: true
-      # syncOptions:
-      # - ServerSideApply=true
+      syncOptions:
+      - Validate=false
