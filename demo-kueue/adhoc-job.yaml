@@ -51,7 +51,7 @@ spec:
                   BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/peer-review
 
                   for i in $(seq 1 10); do \
-                    oc create -f ${BASE}/kueue-demo/kueue-job.yaml; \
+                    oc create -f ${BASE}/demo-kueue/kueue-job.yaml; \
                   done
                 }
 
