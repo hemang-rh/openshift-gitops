@@ -14,5 +14,5 @@ spec:
     targetRevision: peer-review
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: true
