@@ -4,13 +4,13 @@ metadata:
   name: app-python
 spec:
   destination:
-    namespace: python-app
+    namespace: app-python
     server: https://kubernetes.default.svc
   project: default
   source:
     directory:
       recurse: true
-    path: app
+    path: app-python
     repoURL: https://github.com/codekow/demo-kueue
     targetRevision: peer-review
   syncPolicy:
