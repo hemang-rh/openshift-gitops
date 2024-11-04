@@ -22,8 +22,9 @@ kind: CronJob
 metadata:
   name: adhoc-job
 spec:
-  schedule: '*/3 * * * *'
+  schedule: '*/2 * * * *'
   concurrencyPolicy: Replace
+  successfulJobsHistoryLimit: 1
   jobTemplate:
     metadata:
       name: adhoc-job
