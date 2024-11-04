@@ -2,18 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: app-of-apps
+  namespace: openshift-gitops
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: default
   source:
-    directory:
-      recurse: true
     path: bootstrap/argo-apps
     repoURL: https://github.com/codekow/demo-kueue
     targetRevision: peer-review
   syncPolicy:
     automated:
-      # prune: true
-      # selfHeal: true
+      prune: false
+      selfHeal: true
