@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kueue-demo
+  name: demo-kueue
 spec:
   destination:
-    namespace: kueue-demo
+    namespace: demo-kueue
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: kueue-demo
+    path: demo-kueue
     repoURL: https://github.com/codekow/demo-kueue
     targetRevision: peer-review
   syncPolicy:

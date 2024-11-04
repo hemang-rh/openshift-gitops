@@ -10,7 +10,7 @@ spec:
   source:
     directory:
       recurse: true
-    path: kueue-demo-config
+    path: demo-kueue-config
     repoURL: https://github.com/codekow/demo-kueue
     targetRevision: peer-review
   syncPolicy:
