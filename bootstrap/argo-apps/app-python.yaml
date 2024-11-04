@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cluster-setup
+  name: app-python
 spec:
   destination:
-    namespace: default
+    namespace: python-app
     server: https://kubernetes.default.svc
   project: default
   source:
     directory:
       recurse: true
-    path: cluster
+    path: app
     repoURL: https://github.com/codekow/demo-kueue
     targetRevision: peer-review
   syncPolicy:
