@@ -13,3 +13,7 @@ spec:
     path: kueue-demo
     repoURL: https://github.com/codekow/demo-kueue
     targetRevision: peer-review
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
