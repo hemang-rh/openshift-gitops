@@ -9,8 +9,8 @@ spec:
   project: default
   source:
     path: cluster
-    repoURL: https://github.com/codekow/demo-kueue
-    targetRevision: peer-review
+    repoURL: https://github.com/hemang-rh/openshift-gitops
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false

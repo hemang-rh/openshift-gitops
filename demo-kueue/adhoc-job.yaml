@@ -48,7 +48,7 @@ spec:
                 }
 
                 start_kueue_jobs(){
-                  BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/peer-review
+                  BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/main
 
                   for i in $(seq 1 10); do \
                     oc create -f ${BASE}/demo-kueue/kueue-job.yaml; \

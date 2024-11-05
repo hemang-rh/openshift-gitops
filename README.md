@@ -4,8 +4,8 @@ This is an example of how to use kueue with OpenShift AI
 
 ## TODO
 
-- [ ] Change `peer-review` to `main`
-- [ ] Change `https://github.com/codekow/demo-kueue` to `https://github.com/hemang-rh/openshift-gitops`
+- [ ] Change `main` to `main`
+- [ ] Change `https://github.com/hemang-rh/openshift-gitops` to `https://github.com/hemang-rh/openshift-gitops`
 
 ## Quickstart
 
