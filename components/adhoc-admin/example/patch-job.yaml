@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+  name: adhoc-admin-helper
+spec:
+  template:
+    spec:
+      containers:
+        - name: minion
+          volumeMounts:
+            - name: adhoc
+              mountPath: /scripts/adhoc
+      volumes:
+        - name: adhoc
+          configMap:
+            name: example
+            defaultMode: 0755
