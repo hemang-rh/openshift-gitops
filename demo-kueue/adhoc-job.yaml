@@ -22,7 +22,7 @@ kind: CronJob
 metadata:
   name: adhoc-job
 spec:
-  schedule: '*/2 * * * *'
+  schedule: '*/4 * * * *'
   concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 1
   jobTemplate:
@@ -48,7 +48,7 @@ spec:
                 }
 
                 start_kueue_jobs(){
-                  BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/main
+                  BASE=https://raw.githubusercontent.com/hemang-rh/openshift-gitops/refs/heads/main
 
                   for i in $(seq 1 10); do \
                     oc create -f ${BASE}/demo-kueue/kueue-job.yaml; \
