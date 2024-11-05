@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - argo-apps
   - install-argocd
-  - install-web-terminal
+  - ../demo
