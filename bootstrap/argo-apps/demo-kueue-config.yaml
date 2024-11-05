@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-kueue-config
+spec:
+  destination:
+    namespace: demo-kueue
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    # directory:
+    #   recurse: true
+    path: demo-kueue-config
+    repoURL: https://github.com/hemang-rh/openshift-gitops
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false

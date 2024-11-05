@@ -1,18 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-python-app
-  namespace: openshift-gitops
+  name: app-python
 spec:
   destination:
-    namespace: python-app
+    namespace: app-python
     server: https://kubernetes.default.svc
   project: default
   source:
     directory:
       recurse: true
-    path: app
-    repoURL: https://github.com/hemang-rh/openshift-gitops.git
+    path: app-python
+    repoURL: https://github.com/hemang-rh/openshift-gitops
     targetRevision: main
   syncPolicy:
     automated:

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-rhoai-gpu
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: demos/rhoai-workshop-ready
+    repoURL: https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

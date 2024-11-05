@@ -1,16 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cluster-setup
+  name: app-of-apps
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: default
+    namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: default
   source:
-    directory:
-      recurse: true
-    path: cluster
+    path: bootstrap/argo-apps
     repoURL: https://github.com/hemang-rh/openshift-gitops
-    targetRevision: HEAD
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

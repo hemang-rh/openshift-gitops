@@ -1,0 +1,66 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: adhoc-job
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: adhoc-job
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+subjects:
+  - kind: ServiceAccount
+    name: adhoc-job
+    namespace: demo-kueue
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: adhoc-job
+spec:
+  schedule: '*/2 * * * *'
+  concurrencyPolicy: Replace
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    metadata:
+      name: adhoc-job
+    spec:
+      template:
+        metadata:
+        spec:
+          containers:
+          - name: adhoc-job
+            image: registry.redhat.io/openshift4/ose-cli:latest
+            command:
+              - /bin/bash
+              - -c
+              - |
+                #!/bin/bash
+                # set -x
+
+                clean_kueue_jobs(){
+                  echo "deleting"
+                  oc delete job -l kueue.x-k8s.io/queue-name
+                }
+
+                start_kueue_jobs(){
+                  BASE=https://raw.githubusercontent.com/codekow/demo-kueue/refs/heads/main
+
+                  for i in $(seq 1 10); do \
+                    oc create -f ${BASE}/demo-kueue/kueue-job.yaml; \
+                  done
+                }
+
+                clean_kueue_jobs
+                start_kueue_jobs
+            resources:
+              requests:
+                cpu: 1
+                memory: "200Mi"
+          restartPolicy: Never
+          serviceAccount: adhoc-job
+          serviceAccountName: adhoc-job
