@@ -10,7 +10,7 @@ spec:
   source:
     # directory:
     #   recurse: true
-    path: demo-kueue-config
+    path: components/demo-kueue-config
     repoURL: https://github.com/hemang-rh/openshift-gitops
     targetRevision: main
   syncPolicy:

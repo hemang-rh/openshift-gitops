@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: demo-kueue
+    path: components/demo-kueue
     repoURL: https://github.com/hemang-rh/openshift-gitops
     targetRevision: main
   syncPolicy:

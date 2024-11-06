@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: cluster
+    path: components/cluster-config
     repoURL: https://github.com/hemang-rh/openshift-gitops
     targetRevision: main
   syncPolicy:
