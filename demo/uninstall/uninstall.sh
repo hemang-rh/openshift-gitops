@@ -114,7 +114,7 @@ uninstall_demo(){
   # oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshmemberrolls.maistra.io
   # oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshmembers.maistra.io
 
-  oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" --force -k https://github.com/hemang-rh/openshift-gitops/demo
+  oc delete --ignore-not-found=true --force -k https://github.com/hemang-rh/openshift-gitops/demo
 
   delete_misc
   delete_crs
