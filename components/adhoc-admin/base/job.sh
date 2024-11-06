@@ -1,10 +1,11 @@
 #!/bin/bash
-set -x
+# set -x
 
 ADHOC_SCRIPT=${ADHOC_SCRIPT:-/scripts/custom/job.sh}
 
 run_adhoc(){
   if [ -e "${ADHOC_SCRIPT}" ]; then
+    echo "running: ${ADHOC_SCRIPT}..."
     "${ADHOC_SCRIPT}"
   else
     echo "missing: ${ADHOC_SCRIPT}"
