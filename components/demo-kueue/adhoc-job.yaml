@@ -50,8 +50,9 @@ spec:
                 start_kueue_jobs(){
                   BASE=https://raw.githubusercontent.com/hemang-rh/openshift-gitops/refs/heads/main
 
-                  for i in $(seq 1 10); do \
-                    oc create -f ${BASE}/demo-kueue/kueue-job.yaml; \
+                  for i in $(seq 1 10)
+                  do
+                    oc create -f ${BASE}/components/demo-kueue/kueue-job.yaml
                   done
                 }
 
