@@ -1,14 +1,15 @@
 #!/bin/bash
 
 TIMEOUT=60
-NAMESPACE=adhoc-admin
 
 cd "$(dirname "$0")" && pwd
 
 self_distruct(){
+  NAMESPACE=${1:-adhoc-admin}
+  [ -z "${NAMESPACE}" ] && return
   echo "
+    engaging self cleaning...
     removing project: ${NAMESPACE} in ${TIMEOUT}s
-    goodbye cruel world...
   "
   
   sleep "${TIMEOUT}"
@@ -18,8 +19,8 @@ self_distruct(){
 k8s_null_finalizers(){
   OBJ=${1}
   [ -z "${OBJ}" ] && return
-  NAMESPACE=${2}
-  [ -z "${NAMESPACE}" ] || ARGS="-n ${NAMESPACE}"
+  NS=${2}
+  [ -z "${NS}" ] || ARGS="-n ${NS}"
 
   # shellcheck disable=SC2086
   kubectl \
@@ -48,9 +49,9 @@ get_crs(){
 }
 
 delete_crs(){
-  while read -r obj namespace
+  while read -r obj ns
   do
-    k8s_null_finalizers "${obj}" "${namespace}"
+    k8s_null_finalizers "${obj}" "${ns}"
   done < <(get_crs)
 }
 
@@ -109,9 +110,9 @@ uninstall_demo(){
 
   sleep 8
 
-  oc delete --ignore-not-found=true --A --all servicemeshcontrolplanes.maistra.io
-  oc delete --ignore-not-found=true --A --all servicemeshmemberrolls.maistra.io
-  oc delete --ignore-not-found=true --A --all servicemeshmembers.maistra.io
+  oc delete --ignore-not-found=true -A --all servicemeshcontrolplanes.maistra.io
+  oc delete --ignore-not-found=true -A --all servicemeshmemberrolls.maistra.io
+  oc delete --ignore-not-found=true -A --all servicemeshmembers.maistra.io
 
   oc delete -k https://github.com/hemang-rh/openshift-gitops/demo
 
@@ -123,4 +124,5 @@ uninstall_demo(){
   echo "end: uninstall"
 }
 
-uninstall_demo && self_distruct
+uninstall_demo
+self_distruct
