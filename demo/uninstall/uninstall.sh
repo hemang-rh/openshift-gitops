@@ -116,9 +116,9 @@ uninstall_demo(){
   oc delete -k https://github.com/hemang-rh/openshift-gitops/demo
 
   delete_misc
-  delete_namespaces
   delete_crs
   delete_crds
+  delete_namespaces
 
   echo "end: uninstall"
 }
