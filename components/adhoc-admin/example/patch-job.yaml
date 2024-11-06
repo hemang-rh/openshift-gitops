@@ -9,12 +9,12 @@ spec:
         - name: minion
           env:
             - name: ADHOC_SCRIPT
-              value: /scripts/custom/job.sh
+              value: /scripts/custom/uninstall.sh
           volumeMounts:
             - name: custom
               mountPath: /scripts/custom
       volumes:
         - name: custom
           configMap:
-            name: example
+            name: demo-cleanup
             defaultMode: 0755
