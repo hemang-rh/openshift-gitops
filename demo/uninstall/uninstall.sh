@@ -72,7 +72,6 @@ delete_misc(){
     operators.coreos.com/nfd.openshift-nfd
     operators.coreos.com/rhods-operator.redhat-ods-operator
     operators.coreos.com/servicemeshoperator.openshift-operators
-    operators.coreos.com/servicemeshoperator.openshift-gitops
     operators.coreos.com/serverless-operator.openshift-serverless
     operators.coreos.com/web-terminal.openshift-operators
   )
