@@ -105,16 +105,16 @@ uninstall_demo(){
 
   echo "start: uninstall"
 
-  oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" datasciencecluster default-dsc
-  oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" dscinitialization default-dsci
+  # oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" datasciencecluster default-dsc
+  # oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" dscinitialization default-dsci
 
-  sleep 8
+  # sleep 8
 
-  oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshcontrolplanes.maistra.io
-  oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshmemberrolls.maistra.io
-  oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshmembers.maistra.io
+  # oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshcontrolplanes.maistra.io
+  # oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshmemberrolls.maistra.io
+  # oc delete --ignore-not-found=true --grace-period="${TIMEOUT}" -A --all servicemeshmembers.maistra.io
 
-  oc delete -k https://github.com/hemang-rh/openshift-gitops/demo
+  oc delete --ignore-not-found=true --grace-period="${TIMEOUT}"  --force -k https://github.com/hemang-rh/openshift-gitops/demo
 
   delete_misc
   delete_crs
