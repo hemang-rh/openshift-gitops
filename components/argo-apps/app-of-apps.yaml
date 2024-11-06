@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: bootstrap/argo-apps
+    path: components/argo-apps
     repoURL: https://github.com/hemang-rh/openshift-gitops
     targetRevision: main
   syncPolicy:
