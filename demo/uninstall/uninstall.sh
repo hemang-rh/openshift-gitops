@@ -39,7 +39,7 @@ uninstall_demo(){
 
   oc delete -n openshift-operators deploy devworkspace-webhook-server
 
-  GPU_MACHINE_SET=$(oc -n openshift-machine-api get machinesets -o name | grep -E 'gpu|g4dn' | head -n1)
+  GPU_MACHINE_SET=$(oc -n openshift-machine-api get machinesets -o name | grep -E -v 'worker')
   for set in ${GPU_MACHINE_SET}
   do
     oc -n openshift-machine-api delete "$set"
