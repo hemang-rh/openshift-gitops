@@ -33,7 +33,7 @@ uninstall_demo(){
 
   oc delete csv -A -l operators.coreos.com/authorino-operator.openshift-operators
   oc delete csv -A -l operators.coreos.com/devworkspace-operator.openshift-operators
-  oc delete csv -A -l operators.coreos.com/openshift-pipelines-operator-rh.openshift-operators
+  # oc delete csv -A -l operators.coreos.com/openshift-pipelines-operator-rh.openshift-operators
   oc delete csv -A -l operators.coreos.com/servicemeshoperator.openshift-operators
   oc delete csv -A -l operators.coreos.com/web-terminal.openshift-operators
 

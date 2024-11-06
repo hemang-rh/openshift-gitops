@@ -1,1 +1,4 @@
+customresourcedefinition.apiextensions.k8s.io/rayclusters.ray.io
+customresourcedefinition.apiextensions.k8s.io/rayjobs.ray.io
+customresourcedefinition.apiextensions.k8s.io/rayservices.ray.io
 odhdashboardconfigs.opendatahub.io
