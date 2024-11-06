@@ -3,7 +3,7 @@
 TIMEOUT=60
 NAMESPACE=adhoc-admin
 
-# cd "$(dirname "$0")" && pwd
+cd "$(dirname "$0")" && pwd
 
 self_distruct(){
   echo "
