@@ -6,6 +6,15 @@ resources:
 
 patches:
   - target:
+      kind: Job
+      name: job-aws-gpu-machineset
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0
+        value:
+          name: INSTANCE_TYPE
+          value: g5.2xlarge
+  - target:
       kind: NodeFeatureDiscovery
     patch: |-
       - op: replace
