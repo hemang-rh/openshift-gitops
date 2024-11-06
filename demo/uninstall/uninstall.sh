@@ -31,7 +31,7 @@ uninstall_demo(){
   oc -n knative-serving delete knativeservings.operator.knative.dev knative-serving
   oc delete consoleplugin console-plugin-nvidia-gpu
 
-  # xargs -l oc delete --all -A < crds.txt
+  # xargs -l oc delete --force -A --all < crds.txt
 
   CSVS=(
     operators.coreos.com/authorino-operator.openshift-operators
@@ -47,7 +47,7 @@ uninstall_demo(){
 
   for csv in ${CSVS[@]}
   do
-    # set csvs to cleanup
+    # set csv to cleanup
     oc get csv -A -l "${csv}" -o yaml | \
       sed 's/^    enabled: false/    enabled: true/' | \
         oc apply -f -
@@ -72,7 +72,7 @@ uninstall_demo(){
 
   xargs -l oc delete ns < namespaces.txt
 
-  # xargs -l oc delete --all -A < crds.txt
+  # xargs -l oc delete --force -A --all < crds.txt
   # xargs -l oc delete crd < crds.txt
 
   echo "completed: uninstall"
