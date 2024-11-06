@@ -7,8 +7,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: demos/rhoai-workshop-ready
-    repoURL: https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/
+    path: components/install-rhoai
+    repoURL: https://github.com/hemang-rh/openshift-gitops
     targetRevision: main
   syncPolicy:
     automated:

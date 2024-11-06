@@ -74,6 +74,7 @@ delete_misc(){
     operators.coreos.com/servicemeshoperator.openshift-operators
     operators.coreos.com/serverless-operator.openshift-serverless
     operators.coreos.com/web-terminal.openshift-operators
+    
   )
 
   # shellcheck disable=SC2068
